@@ -1,5 +1,8 @@
 import React from "react";
+
 import WebHead from "../components/webhead.component";
+import MenuBar from "../components/menubar.component";
+import HeroSlider from "../components/heroslider.component";
 
 class HomePage extends React.Component {
 
@@ -10,7 +13,8 @@ class HomePage extends React.Component {
                 page_title: "Home",
                 keywords: ["Best Site", "Best Site 2", "Best Site 3"],
                 description: 'Test Description'
-            }
+            },
+            
         }
     }
 
@@ -23,7 +27,13 @@ class HomePage extends React.Component {
         return (
             <>
                 <WebHead headInsiders={this.state.head_insiders} />
-                {this.state.head_insiders.page_title}
+
+                <div className="hero_area">
+                    <MenuBar />
+                    <HeroSlider />
+                </div>
+
+                
             </>
         );
     }

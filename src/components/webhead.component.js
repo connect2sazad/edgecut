@@ -23,9 +23,9 @@ function WebHead({ headInsiders }) {
                 <meta name="author" content={author} />
                 <link rel="icon" href={favicon} type="image/png" />
                 <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
-                <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
-                <link href="../assets/css/style.css" rel="stylesheet" />
-                <link href="../assets/css/responsive.css" rel="stylesheet" />
+                <link href={process.env.PUBLIC_URL+"assets/css/font-awesome.min.css"} rel="stylesheet" />
+                <link href={process.env.PUBLIC_URL+"assets/css/style.css"} rel="stylesheet" />
+                <link href={process.env.PUBLIC_URL+"assets/css/responsive.css"} rel="stylesheet" />
             </Helmet>
         </>
     );
