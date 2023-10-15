@@ -22,10 +22,25 @@ class HeroSlider extends React.Component {
                     btn1_link: "#",
                     btn2_name: "About Us",
                     btn2_link: "#",
-                }
-            ],
-            test: "h"
-        }
+                },
+                // {
+                //     title: "For All My Furniture Needs 2",
+                //     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus quidem maiores perspiciatis, illo maxime voluptatem a itaque suscipit.",
+                //     btn1_name: "Contact Us",
+                //     btn1_link: "#",
+                //     btn2_name: "About Us",
+                //     btn2_link: "#",
+                // },
+                // {
+                //     title: "For All Their Furniture Needs 3",
+                //     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus quidem maiores perspiciatis, illo maxime voluptatem a itaque suscipit.",
+                //     btn1_name: "Contact Us",
+                //     btn1_link: "#",
+                //     btn2_name: "About Us",
+                //     btn2_link: "#",
+                // }
+            ]
+        };
     }
 
     componentDidMount() {
@@ -45,9 +60,16 @@ class HeroSlider extends React.Component {
                             modules={[Pagination, Navigation, EffectFade]}
                             effect={"fade"}
                         >
-                            <SwiperSlide><Slide no={1} heading={this.state.slides[0].title}/></SwiperSlide>
+                            {/* <SwiperSlide><Slide no={1} heading={this.state.slides[0].title}/></SwiperSlide>
                             <SwiperSlide><Slide no={2} heading={this.state.slides[0].title}/></SwiperSlide>
-                            <SwiperSlide><Slide no={3} heading={this.state.slides[0].title}/></SwiperSlide>
+                            <SwiperSlide><Slide no={3} heading={this.state.slides[0].title}/></SwiperSlide> */}
+                            {
+                                this.state.slides.map((slide, index) => (
+                                    <SwiperSlide key={index}>
+                                        <Slide {...slide} />
+                                    </SwiperSlide>
+                                ))
+                            }
                         </Swiper>
                     </div>
                 </div>
@@ -58,38 +80,30 @@ class HeroSlider extends React.Component {
 
 export default HeroSlider;
 
-const Slide = ({ no, heading }) => {
-    return (
-        <>
-            <div className="carousel-item active">
-                <div className="container ">
-                    <div className="row">
-                        <div className="col-md-5">
-                            <div className="detail-box">
-                                <h1>
-                                    {heading}
-                                </h1>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus quidem maiores perspiciatis, illo maxime voluptatem a itaque suscipit.
-                                </p>
-                                <div className="btn-box">
-                                    <Link to="#" className="btn1">
-                                        Contact Us
-                                    </Link>
-                                    <Link to="#" className="btn2">
-                                        About Us
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-7">
-                            <div className="img-box">
-                                <img src={process.env.PUBLIC_URL + "assets/images/slider-img.png"} alt="" />
-                            </div>
+const Slide = ({ title, description, btn1_name, btn1_link, btn2_name, btn2_link }) => (
+    <div className="carousel-item active">
+        <div className="container ">
+            <div className="row">
+                <div className="col-md-5">
+                    <div className="detail-box">
+                        <h1>{title}</h1>
+                        <p>{description}</p>
+                        <div className="btn-box">
+                            <Link to={btn1_link} className="btn1">
+                                {btn1_name}
+                            </Link>
+                            <Link to={btn2_link} className="btn2">
+                                {btn2_name}
+                            </Link>
                         </div>
                     </div>
                 </div>
+                <div className="col-md-7">
+                    <div className="img-box">
+                        <img src={process.env.PUBLIC_URL + 'assets/images/slider-img.png'} alt="" />
+                    </div>
+                </div>
             </div>
-        </>
-    );
-}
+        </div>
+    </div>
+);

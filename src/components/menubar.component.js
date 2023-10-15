@@ -9,10 +9,10 @@ class MenuBar extends React.Component {
                 'HOME': '/',
                 'ABOUT': '/about',
                 'FURNITURES': '/furnitures',
-                'BLOG': '/blog',
+                'BLOG': '/blogs',
                 'CONTACT US': '/contact-us',
             }
-        }
+        };
     }
 
     componentDidMount() {
